@@ -1,8 +1,11 @@
 package eredua.bean;
 
+import java.sql.Date;
+
 public class LoginBean {
 	private String izena;
 	private String pasahitza;
+	private Date data;
 
 	public LoginBean() {
 	}
@@ -29,4 +32,13 @@ public class LoginBean {
 		else
 			return "ok";
 	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
 }
