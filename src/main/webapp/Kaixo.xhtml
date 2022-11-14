@@ -4,26 +4,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-<f:view>
-	<h:head>
-		<title>JavaServer Faces aplikazioa</title>
-		<h:outputScript library="js" name="infoJavaScript.js" />
-	</h:head>
-	<h:body>
-		<h:form>
-			<h3>
-				Ongi etorri JavaServer Faces-era,
-				<h:outputText value="#{login.izena}" />
-				!
-				<p>
-					Data:
-					<h:outputText value="#{login.data}" />
-				</p>
-			</h3>
-		</h:form>
-		<p>
-		<h:commandButton value="Onartu" onclick="showMessage('Ez dago definituta nora joan')" />
-		</p>
-	</h:body>
-</f:view>
+<ui:composition template="/WEB-INF/facelets/templates/Txantiloia.xhtml">
+	<ui:define name="izenburua">
+Kaixo
+</ui:define>
+	<ui:define name="gorputza">
+		<ui:include src="KaixoKonponente.xhtml" />
+	</ui:define>
+</ui:composition>
 </html>
