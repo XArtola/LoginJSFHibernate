@@ -20,6 +20,16 @@ public class GertaerakSortu {
 		session.persist(e);
 		session.getTransaction().commit();
 	}
+	
+	private void createAndStoreLoginGertaera(String deskribapena, Date data) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		LoginGertaera e = new LoginGertaera();
+		e.setDeskribapena(deskribapena);
+		e.setData(data);
+		session.persist(e);
+		session.getTransaction().commit();
+		}
 
 	private List gertaerakZerrendatu() {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -32,9 +42,13 @@ public class GertaerakSortu {
 	public static void main(String[] args) {
 		GertaerakSortu e = new GertaerakSortu();
 		System.out.println("Gertaeren sorkuntza:");
-		e.createAndStoreLoginGertaera(1L, "Anek ondo egin du logina", new Date());
+	/*	e.createAndStoreLoginGertaera(1L, "Anek ondo egin du logina", new Date());
 		e.createAndStoreLoginGertaera(2L, "Nerea saiatu da login egiten", new Date());
-		e.createAndStoreLoginGertaera(3L, "Kepak ondo egin du logina", new Date());
+		e.createAndStoreLoginGertaera(3L, "Kepak ondo egin du logina", new Date());*/
+		
+		e.createAndStoreLoginGertaera("Anek ondo egin du logina", new Date());
+		e.createAndStoreLoginGertaera("Nerea saiatu da login egiten", new Date());
+		e.createAndStoreLoginGertaera("Kepak ondo egin du logina", new Date());
 		System.out.println("Gertaeren zerrenda:");
 		List gertaerak = e.gertaerakZerrendatu();
 		for (int i = 0; i < gertaerak.size(); i++) {
