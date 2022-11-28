@@ -1,5 +1,7 @@
 package eredua;
 
+import java.io.File;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -14,7 +16,7 @@ public class HibernateUtil {
 //new Configuration().configure(new File("hibernate.cfg.xml")).buildSessionFactory();
 // orduan "hibernate.cfg.xml" fitxategia, direktorio erroan jarriko beharko litzateke
 // Eta gainera, fitxategiaren izena ("hibernate.cfg.xml") desberdina izan liteke
-			return new Configuration().configure().buildSessionFactory();
+			return new Configuration().configure(new File("src/hibernate.cfg.xml")).buildSessionFactory();
 		} catch (Throwable ex) {
 			System.err.println("Errorea SessionFactory sortzen." + ex);
 			throw new ExceptionInInitializerError(ex);
